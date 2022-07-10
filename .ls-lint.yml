@@ -1,0 +1,12 @@
+ls:
+  src:
+    .ts: camelCase
+    .d.ts: camelCase
+    .tsx: PascalCase
+    .spec.ts: camelCase
+    .vue: PascalCase
+    .md: PascalCase
+
+ignore:
+  - .git
+  - node_modules
