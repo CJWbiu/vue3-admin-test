@@ -8,7 +8,9 @@
     "preview": "vite preview",
     "eslint": "npx eslint ./src --ext .vue,.js,.jsx,.ts,.tsx",
     "prepare": "husky install",
-    "ls-lint": "ls-lint"
+    "ls-lint": "ls-lint",
+    "test:component": "cypress open -C ./cypress/cypress.config.ts --component -b electron",
+    "test:unit": "vitest -c ./test/vitest.config.ts"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,vue}": [
@@ -29,8 +31,10 @@
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "@vitejs/plugin-vue": "^2.3.3",
+    "cypress": "10.4.0",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-define-config": "^1.6.0",
     "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-vue": "^9.2.0",
     "husky": "^8.0.1",
@@ -38,6 +42,7 @@
     "prettier": "^2.7.1",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
+    "vitest": "^0.21.0",
     "vue-eslint-parser": "^9.0.3",
     "vue-tsc": "^0.34.7"
   }
