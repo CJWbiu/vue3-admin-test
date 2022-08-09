@@ -1,4 +1,6 @@
-module.exports = {
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
   root: true,
   env: {
     browser: true,
@@ -20,6 +22,23 @@ module.exports = {
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     semi: ['error', 'always'],
-    'no-console': 'error'
-  }
-};
+    'no-console': process.ENV === 'production' ? 2 : 0,
+    'no-debugger': process.ENV === 'production' ? 2 : 0,
+    '@typescript-eslint/no-unused-vars': 'error'
+  },
+
+  overrides: [
+    {
+      files: ['cypress/**/*.ts'],
+      rules: {
+        '@typescript-eslint/no-namespace': 0
+      }
+    },
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 0
+      }
+    }
+  ]
+});
